@@ -49,7 +49,7 @@
         <span><a href="https://github.com/kaustubh03/find-my-diamond"><img
                     src="./images//github-corner-right.svg" /></a></span>
     </div>
-    <div class="credits">
+    <div class="credits" id="credits">
         <span>Simple example on the Use of Web Components with Vanilla JS and Pure HTML CSS</span>
         <span>Built with 💛 by <a href="https://kaustubh.dev">Kaustubh Saxena</a></span>
     </div>
@@ -72,6 +72,7 @@
     }
 
     selectLevel = (id) => {
+        document.getElementById('credits').style.display = "none";
         window.audio.play();
         game.selectLevel(id);
     }
@@ -83,6 +84,7 @@
 
     startOverNewGame = () =>{
         game.cleanup();
+        document.getElementById('credits').style.display = "flex";
         game = new Game(rootElem);
     }
 
