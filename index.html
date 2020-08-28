@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="./index.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Bangers&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+    <main class="game" id="gameRoot">
+    </main>
+    <div class="github-corner">
+        <span><a href="https://github.com/kaustubh03/find-my-diamond"><img src="./images//github-corner-right.svg" /></a></span>
+    </div>
+    <div class="credits">
+        <span>Built with 💛 by <a href="https://kaustubh.dev">Kaustubh Saxena</a></span>
+    </div>
+    <script src="web-components/button/button.js" defer></script>
+    <script src="scripts/stopwatch.js"></script>
+    <script src="scripts/game.js"></script>
+    </body>
+    <script>
+        var game = null;
+        var rootElem = null;
+        window.onload = () => {
+            rootElem = document.getElementById('gameRoot');
+            window.audio = new Audio('/sounds/click.wav')
+            startNewGame();
+        }
+
+        selectMenu = (id) => {
+            window.audio.play();
+            game.selectMenu(id);
+        }
+
+        selectLevel = (id) =>{
+            window.audio.play();
+            game.selectLevel(id);
+        }
+        
+
+        startNewGame = () =>{
+            game = new Game(rootElem);
+        }
+        
+        
+    </script>
+</html>
