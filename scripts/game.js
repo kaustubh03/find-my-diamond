@@ -208,7 +208,7 @@ class Game {
         totalChances.id="totalChances";
         totalChances.classList.add('children');
         totalChances.classList.add('chances');
-        totalChances.innerHTML = `<span class="menutitle">👍</span><span class="menuValue">${this.level.chances}</span>`;
+        totalChances.innerHTML = `<span class="menutitle">👍</span><span id="chances" class="menuValue">${this.level.chances}</span>`;
         
         // Render Level Chances
         const level = document.createElement('div');
@@ -284,8 +284,9 @@ class Game {
                    
                 }
             }
+           document.getElementById('chances').innerText = this.level.chances - this.attempts;
            this.attempts = this.attempts + 1;
-
+           
         }   
     }
 

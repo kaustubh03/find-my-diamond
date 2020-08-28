@@ -1,16 +1,53 @@
 <!DOCTYPE html>
-    <head>
-        <title></title>
-        <link rel="stylesheet" href="./index.css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Bangers&display=swap"
-            rel="stylesheet">
-    </head>
-    <body>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Bangers&display=swap"
+        rel="stylesheet">
+
+
+    <title>Find My Diamond</title>
+
+    <link rel="icon" href='https://mirajewelers.com/wp-content/uploads/2016/11/diamond-300x300.png' />
+
+    <meta name="description" content="Find My Diamond : Pure HTML/CSS and JavaScript with the Use of Web Components" />
+
+    <link rel="canonical" href="https://diamond.kaustubh.dev" />
+
+    <meta name="keywords"
+        content="find my diamond, kaustubh, kaustubh saxena, paytm, webcomponents, kaustubh.dev, pure js, vanilla js, html, css" />
+
+    <meta property="og:title" content="Find My Diamond : Pure HTML/CSS and JavaScript with the Use of Web Components" />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:url" content="https://diamond.kaustubh.dev" />
+
+    <meta property="og:description" content="Find My Diamond using Web Components Example" />
+
+    <meta property="og:image" content="https://mirajewelers.com/wp-content/uploads/2016/11/diamond-300x300.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title"
+        content="Find My Diamond : Pure HTML/CSS and JavaScript with the Use of Web Components" />
+
+    <meta name="twitter:description"
+        content="Find My Diamond : Pure HTML/CSS and JavaScript with the Use of Web Components" />
+
+    <meta name="twitter:url" content="https://diamond.kaustubh.dev" />
+
+    <meta name="twitter:image" content="https://i.ibb.co/C6qvBTz/Screenshot-2020-08-28-at-11-12-39-AM.png" />
+</head>
+
+<body>
     <main class="game" id="gameRoot">
     </main>
     <div class="github-corner">
-        <span><a href="https://github.com/kaustubh03/find-my-diamond"><img src="./images//github-corner-right.svg" /></a></span>
+        <span><a href="https://github.com/kaustubh03/find-my-diamond"><img
+                    src="./images//github-corner-right.svg" /></a></span>
     </div>
     <div class="credits">
         <span>Built with 💛 by <a href="https://kaustubh.dev">Kaustubh Saxena</a></span>
@@ -18,31 +55,32 @@
     <script src="web-components/button/button.js" defer></script>
     <script src="scripts/stopwatch.js"></script>
     <script src="scripts/game.js"></script>
-    </body>
-    <script>
-        var game = null;
-        var rootElem = null;
-        window.onload = () => {
-            rootElem = document.getElementById('gameRoot');
-            window.audio = new Audio('/sounds/click.wav')
-            startNewGame();
-        }
+</body>
+<script>
+    var game = null;
+    var rootElem = null;
+    window.onload = () => {
+        rootElem = document.getElementById('gameRoot');
+        window.audio = new Audio('/sounds/click.wav')
+        startNewGame();
+    }
 
-        selectMenu = (id) => {
-            window.audio.play();
-            game.selectMenu(id);
-        }
+    selectMenu = (id) => {
+        window.audio.play();
+        game.selectMenu(id);
+    }
 
-        selectLevel = (id) =>{
-            window.audio.play();
-            game.selectLevel(id);
-        }
-        
+    selectLevel = (id) => {
+        window.audio.play();
+        game.selectLevel(id);
+    }
 
-        startNewGame = () =>{
-            game = new Game(rootElem);
-        }
-        
-        
-    </script>
+
+    startNewGame = () => {
+        game = new Game(rootElem);
+    }
+
+
+</script>
+
 </html>
