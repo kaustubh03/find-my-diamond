@@ -80,6 +80,10 @@
         game = new Game(rootElem);
     }
 
+    startOverNewGame = () =>{
+        game.cleanup();
+        game = new Game(rootElem);
+    }
 
 </script>
 

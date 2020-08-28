@@ -183,7 +183,6 @@ class Game {
         // Get and Store Random Int in Global Variable
         const randomBtn = this.getRandomInt(totalUnits);
         this.specialCell = randomBtn;
-        console.log(randomBtn);
         // Build Game Canvas
         const gameCanvas = document.createElement('div');
         gameCanvas.classList.add('game__canvas');
@@ -312,6 +311,7 @@ class Game {
 
     renderGameOver = () =>{
         this.cleanRootNode();
+        
         const gameOverParent = document.createElement('div');
         gameOverParent.classList.add('gameOver');
 
@@ -319,7 +319,7 @@ class Game {
             <div class="score">
                 <span>Game Over</span>
                 <span>Score : ${this.finalScore}</span>
-                <span class="new-game-cta" onclick="startNewGame()">
+                <span class="new-game-cta" onclick="startOverNewGame()">
                     Start New Game
                 </span>
             </div>
@@ -337,7 +337,7 @@ class Game {
             <div class="score">
                 <span>Kudos Mate! You've Got a Sixth Sense</span>
                 <span>Score : ${this.finalScore}</span>
-                <span class="new-game-cta" onclick="startNewGame()">
+                <span class="new-game-cta" onclick="startOverNewGame()">
                     Start New Game
                 </span>
             </div>
@@ -361,4 +361,19 @@ class Game {
             return resultant;
         }
     };
+
+    /*
+        Clean up
+    */
+    cleanup = () =>{
+        this.isStarted = false;
+        this.level = null;
+        this.rootNode = null;
+        this.currentScreen = null;
+        this.specialCell = null;
+        this.stopwatch = null;
+        this.score = null;
+        this.attempts = 1;
+        this.finalScore = 0;
+    }
 }
