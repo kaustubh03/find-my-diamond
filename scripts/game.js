@@ -252,24 +252,13 @@ class Game {
     }
 
     getNumberTrivia = async (number) =>{
-        let getTrivia = await fetch(`http://numbersapi.com/${number}`, {
-            "headers": {
-                "accept": "text/plain, */*; q=0.01",
-                "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
-                "x-requested-with": "XMLHttpRequest"
-            },
-        });
-
-        if(getTrivia && getTrivia.status ===200){
-            let hint = await getTrivia.text();
-            hint = `Hint : ${hint.replace(number, 'XX')}`;
-            const hintElem = document.createElement('div');
-            hintElem.id = 'hintElem';
-            hintElem.classList.add('hint')
-            hintElem.innerText = hint;
-            document.getElementById('gameRoot').insertBefore(hintElem, document.getElementById('gameCanvas'))
-            
-        }
+        let trivia_ = trivia[number];
+        trivia_ = trivia_.replace(number, 'XX');
+        const hintElem = document.createElement('div');
+        hintElem.id = 'hintElem';
+        hintElem.classList.add('hint')
+        hintElem.innerText = trivia_;
+        document.getElementById('gameRoot').insertBefore(hintElem, document.getElementById('gameCanvas'))
     }
 
     renderMenuBar = () =>{
