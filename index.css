@@ -450,6 +450,17 @@ body {
       width: 150px;
 }
 
+.hint{
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1.9px;
+  font-size: 25px;
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
 
 /** ------------------------------ Media Queries --------------------------- **/
 /* Iphone 6+ */
@@ -500,6 +511,6 @@ body {
   height: 120px
 }
 .menutitle{
-  padding-right:20px !important;
-}
+    padding-right:20px !important;
+  }
 }

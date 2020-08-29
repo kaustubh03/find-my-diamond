@@ -186,6 +186,7 @@ class Game {
         // Build Game Canvas
         const gameCanvas = document.createElement('div');
         gameCanvas.classList.add('game__canvas');
+        gameCanvas.id = 'gameCanvas'
         
         
         // Build Game Parent
@@ -199,7 +200,7 @@ class Game {
                 </div>`
         }
         
-        // Render Menu Bar
+        // Render Stat Bar
         const statBar = this.renderMenuBar();
 
         // Render Total Chances
@@ -228,13 +229,15 @@ class Game {
         statBar.append(stopWatch);
         statBar.append(results);
         statBar.append(level)
-
+        
         this.addToRootNode(statBar);
         
+
         gameCanvas.append(gridParent);
         this.addToRootNode(gameCanvas); 
-
-
+        
+        // Add Hint For the result
+        this.getNumberTrivia(randomBtn);
 
         /*
             Initiate StopWatch
@@ -246,6 +249,27 @@ class Game {
             Add Event Handler to All Mesh Buttons
         */
         document.querySelectorAll('road-button').forEach(item=>addEventListener('click', this.btnClickAction));  
+    }
+
+    getNumberTrivia = async (number) =>{
+        let getTrivia = await fetch(`http://numbersapi.com/${number}`, {
+            "headers": {
+                "accept": "text/plain, */*; q=0.01",
+                "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+                "x-requested-with": "XMLHttpRequest"
+            },
+        });
+
+        if(getTrivia && getTrivia.status ===200){
+            let hint = await getTrivia.text();
+            hint = `Hint : ${hint.replace(number, 'XX')}`;
+            const hintElem = document.createElement('div');
+            hintElem.id = 'hintElem';
+            hintElem.classList.add('hint')
+            hintElem.innerText = hint;
+            document.getElementById('gameRoot').insertBefore(hintElem, document.getElementById('gameCanvas'))
+            
+        }
     }
 
     renderMenuBar = () =>{
@@ -270,7 +294,10 @@ class Game {
                this.score = this.stopwatch.stop();
                this.calculateScore(1);
                this.stopwatch.clear();
-               this.renderGameWin();
+               setTimeout(()=>{
+                   this.renderGameWin();
+               },3000)
+               
             }
             else{
                if (this.attempts === this.level.chances) {
